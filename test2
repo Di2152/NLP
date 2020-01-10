@@ -1,0 +1,4 @@
+import jieba
+with open('mt.txt',encoding='utf-8') as f:
+    mt = f.read()
+    print(mt)

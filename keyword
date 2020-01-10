@@ -1,0 +1,5 @@
+from gensim.models import word2vec
+sentences=word2vec.Text8Corpus('mtSeg_sw.txt')
+model=word2vec.Word2Vec(sentences, size=10)
+for i in model.most_similar(u" ",top=20):
+    print (i[0],i[1])

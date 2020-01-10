@@ -1,0 +1,21 @@
+import jieba
+with open('mt.txt',encoding='utf-8') as f:
+    mt = f.read()
+    print(mt)
+    print('after segmentation')
+    mt_cut = jieba.cut(mt,cut_all = False)
+    result = ' '.join(mt_cut)
+    with open('mtSeg.txt', 'w',encoding="utf-8") as g:
+        g.write(result)
+f.close()
+g.close()
+
+mts = open('mtSeg.txt',encoding='utf-8')
+stopwords = open('停用词表.txt',encoding='utf-8')
+for line in mts:
+    if line not in stopwords:
+        mts_cut = jieba.cut(mt,cut_all = False)
+        res = ' '.join(mts_cut)
+        with open('mtSeg_sw.txt', 'w',encoding="utf-8") as sw:
+            sw.write(res)
+    sw.close()
